@@ -1,12 +1,6 @@
 public class TicTacToe {
-    public static boolean isValidMove(char[][] board, int row, int col) {
-        if (row < 0 || row > 2 || col < 0 || col > 2) {
-            return false;
-        }
-        if (board[row][col] != '-') {
-            return false;
-        }
-        return true;
+    public static void placeSymbol(char[][] board, int row, int col, char symbol) {
+        board[row][col] = symbol;
     }
     public static void main(String[] args) {
         char[][] board = {
@@ -16,7 +10,13 @@ public class TicTacToe {
         };
         int row = 1;
         int col = 1;
-        boolean result = isValidMove(board, row, col);
-        System.out.println("Move valid: " + result);
+        char symbol = 'X';
+        placeSymbol(board, row, col, symbol);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
