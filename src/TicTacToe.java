@@ -1,13 +1,22 @@
 public class TicTacToe {
-    public static int[] convertSlotToIndex(int slot) {
-        int row = (slot - 1) / 3;
-        int col = (slot - 1) % 3;
-        return new int[]{row, col};
+    public static boolean isValidMove(char[][] board, int row, int col) {
+        if (row < 0 || row > 2 || col < 0 || col > 2) {
+            return false;
+        }
+        if (board[row][col] != '-') {
+            return false;
+        }
+        return true;
     }
     public static void main(String[] args) {
-        int slot = 5;
-        int[] position = convertSlotToIndex(slot);
-        System.out.println("Row: " + position[0]);
-        System.out.println("Column: " + position[1]);
+        char[][] board = {
+            {'-', '-', '-'},
+            {'-', '-', '-'},
+            {'-', '-', '-'}
+        };
+        int row = 1;
+        int col = 1;
+        boolean result = isValidMove(board, row, col);
+        System.out.println("Move valid: " + result);
     }
 }
